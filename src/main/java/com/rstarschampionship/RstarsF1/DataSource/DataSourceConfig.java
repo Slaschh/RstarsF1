@@ -1,4 +1,4 @@
-package com.rstarschampionship.RstarsF1.DataSourceBean;
+package com.rstarschampionship.RstarsF1.DataSource;
 
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-public class DataSourceBean {
+public class DataSourceConfig {
     @Bean
     public DataSource getDataSource ()
     {

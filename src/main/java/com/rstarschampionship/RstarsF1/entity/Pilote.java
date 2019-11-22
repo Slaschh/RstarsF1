@@ -1,41 +1,36 @@
 package com.rstarschampionship.RstarsF1.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Pilote {
+@Table(name ="pilote")
+@EntityListeners(AuditingEntityListener.class)
+
+public class Pilote implements Serializable {
 
     @Id
+    @Column(name = "id_pilote", updatable = false, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String nom_pilote;
-    private String nom_ecurie;
-    private Date date_integration;
-    private boolean modification;
     private Long id_pilote;
+    @Column(name = "nom_pilote")
+    private String nom_pilote;
+    @Column(name = "nom_ecurie")
+    private String nom_ecurie;
 
 
-    public Pilote () {super();}
-
-    public Pilote (String nom_pilote, String nom_ecurie, Date date_integration, boolean modification)
-    {
+    public Pilote() {
         super();
-        this.nom_ecurie=nom_ecurie;
-        this.nom_pilote=nom_pilote;
-        this.date_integration=date_integration;
-        this.modification=modification;
     }
 
-    public boolean isModification() {
-        return modification;
+    public Pilote(String nom_pilote, String nom_ecurie) {
+        super();
+        this.nom_ecurie = nom_ecurie;
+        this.nom_pilote = nom_pilote;
     }
 
-    public void setModification(boolean modification) {
-        this.modification = modification;
-    }
     public String getNom_pilote() {
         return nom_pilote;
     }
@@ -60,11 +55,13 @@ public class Pilote {
         this.id_pilote = id_pilote;
     }
 
-    public Date getDate_integration() {
-        return date_integration;
-    }
-
-    public void setDate_integration(Date date_integration) {
-        this.date_integration = date_integration;
+    @Override
+    public String toString() {
+        return "Pilote{" +
+                "id_pilote=" + id_pilote +
+                ", nom_pilote='" + nom_pilote + '\'' +
+                ", nom_ecurie='" + nom_ecurie + '\'' +
+                '}';
     }
 }
+

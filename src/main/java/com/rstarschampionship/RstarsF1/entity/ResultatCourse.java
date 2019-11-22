@@ -1,22 +1,21 @@
 package com.rstarschampionship.RstarsF1.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ResultatCourse {
 
     @Id
-    @GeneratedValue
-    private String circuit;
-
-
-
-    private int place;
-    private boolean modifcation;
-    private long id_pilote;
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_resultat;
+    @Column(name="circuit")
+    private String circuit;
+    @Column(name = "place")
+    private int place;
+    @Column(name = "id_pilote")
+    private long id_pilote;
+
+    private boolean modifcation;
 
     public ResultatCourse ()
     {
