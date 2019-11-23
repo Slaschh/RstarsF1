@@ -11,10 +11,14 @@ import java.util.List;
 public class ResultatCourseService {
 
     @Autowired
-    private ResultatCourseRepository resultatCourseRepository;
+    ResultatCourseRepository resultatCourseRepository;
 
-    public List<ResultatCourse> list()
-    {
+
+    public void save(ResultatCourse resultatCourse) {
+        resultatCourseRepository.save(resultatCourse);
+    }
+
+    public List<ResultatCourse> findAll() {
         return resultatCourseRepository.findAll();
     }
 }

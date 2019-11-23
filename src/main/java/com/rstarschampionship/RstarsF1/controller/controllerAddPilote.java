@@ -33,11 +33,10 @@ public class controllerAddPilote {
         if (result.hasErrors()) {
             return "home";
         }
-        pilote.setId_pilote((long) 22);
         System.out.println(pilote);
         piloteService.save(pilote);
-        model.addAttribute("pilote",pilote);
+        model.addAttribute("pilote", piloteService.findAll());
 
-            return"addPilote";
-}
+        return "addPilote";
+    }
 }

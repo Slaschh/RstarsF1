@@ -11,15 +11,15 @@ import java.util.List;
 public class PiloteService {
 
     @Autowired
- PiloteRepository piloteRepository;
+    PiloteRepository piloteRepository;
 
 
     public List<Pilote> findAll() {
         return piloteRepository.findAll();
     }
 
-    public void save (Pilote pilote) {
-         piloteRepository.save(pilote);
+    public void save(Pilote pilote) {
+        piloteRepository.save(pilote);
     }
 
 }

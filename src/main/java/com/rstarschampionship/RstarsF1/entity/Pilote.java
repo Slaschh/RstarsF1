@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name ="pilote")
@@ -21,11 +22,12 @@ public class Pilote implements Serializable {
     private String nom_ecurie;
 
 
+
     public Pilote() {
         super();
     }
 
-    public Pilote(String nom_pilote, String nom_ecurie) {
+    public Pilote(String nom_pilote, String nom_ecurie, Date integration) {
         super();
         this.nom_ecurie = nom_ecurie;
         this.nom_pilote = nom_pilote;

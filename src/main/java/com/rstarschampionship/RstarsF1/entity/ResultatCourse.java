@@ -1,12 +1,17 @@
 package com.rstarschampionship.RstarsF1.entity;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name = "resultat_course" )
+@EntityListeners(AuditingEntityListener.class)
 public class ResultatCourse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id_resultat;
     @Column(name="circuit")
     private String circuit;
@@ -68,5 +73,15 @@ public class ResultatCourse {
 
     public void setId_resultat(Long id_resultat) {
         this.id_resultat = id_resultat;
+    }
+
+    @Override
+    public String toString() {
+        return "ResultatCourse{" +
+                "id_resultat=" + id_resultat +
+                ", circuit='" + circuit + '\'' +
+                ", place=" + place +
+                ", id_pilote=" + id_pilote +
+                '}';
     }
 }

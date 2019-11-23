@@ -15,8 +15,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class RstarsF1Application {
 
 
-	public static void main(String[] args) {
-		SpringApplication.run(RstarsF1Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RstarsF1Application.class, args);
+    }
 
 }

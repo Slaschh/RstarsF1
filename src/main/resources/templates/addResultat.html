@@ -12,49 +12,46 @@
 
         <div th:insert="fragment/LateralNav :: nav(lateralnav)"></div>
 
-            <!-- Formulaire pour l'ajout d'un résultat -->
+        <!-- Formulaire pour l'ajout d'un résultat -->
 
         <div class="col-10">
-            <div class="card" style="width: 50rem; justify-content: center ; align-content: center; background: whitesmoke; ">
+            <div class="card"
+                 style="width: 50rem; justify-content: center ; align-content: center; background: whitesmoke; ">
                 <img src="../static/assets/Banniere.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <form  th:action="@{/ResultatCourse}"
-                           th:object="${resultatsCourse}" method="POST">
+                    <form th:action="@{/addResultat}"
+                          th:object="${resultatCourse}" method="POST">
                         <div class="form-group">
-                            <label for="exampleFormNamePilote">
-                                <h1>Nom pilote :</h1>
+                            <label for="NamePilote">
+                                <h1>Id Pilote :</h1>
                             </label>
                             <!-- Mise en place d'une liste des pilotes inscrit dans la bdd (table : pilote) -->
                             <!-- Renvoi de l'id_pilote liée à la bdd (table : pilote)  -->
-                            <input type="text" class="form-control" id="exampleFormNamePilote" placeholder="Nom Pilote" th:field="*{nom_pilote}"/>
+                            <input type="text" class="form-control" id="NamePilote" placeholder="Nom Pilote"
+                                   th:field="*{id_pilote}"/>
                         </div>
                         <div class="form-group">
-                            <label for="exmapleFormNameEcurie">
-                                <h1>Nom ecurie :</h1>
+                            <label for="NameEcurie">
+                                <h1>Circuit :</h1>
                             </label>
-                            <input type="text" class="form-control" id="exmapleFormNameEcurie" placeholder="Nom Ecurie" th:field="*{nom_ecurie}"/>
+                            <input type="text" class="form-control" id="NameEcurie" placeholder="Nom Ecurie"
+                                   th:field="*{circuit}"/>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormPlace">
-                                <h1>Date d'intégration :</h1>
+                            <label for="Place">
+                                <h1>Place :</h1>
                             </label>
-                            <input type="date" class="form-control" id="exampleFormPlace" placeholder="Date d'intégration" th:field="*{date_integration}"/>
-                        </div>
-                        <div class="radio-button">
-                            <input type="boolean" clas="custom-control-input" id="group1">
-                            <label class="custom-control-label" for="group1">Nouveau</label>
+                            <input type="date" class="form-control" id="Place" placeholder="Date d'intégration"
+                                   th:field="*{place}"/>
 
-                            <input type="boolean" clas="custom-control-input" id="group2">
-                            <label class="custom-control-label" for="group2">Modification</label>
-                        </div>
 
+                            <input type="submit" class="btn btn-light" value="Create"/>
+                        </div>
                     </form>
-                    <input type="submit" class="btn btn-light" value="Create"/>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 
