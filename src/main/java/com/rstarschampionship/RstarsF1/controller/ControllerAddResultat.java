@@ -30,12 +30,13 @@ public class ControllerAddResultat {
     @RequestMapping(value = "/addResultat", method = RequestMethod.POST)
     public String AddResultat(@ModelAttribute ResultatCourse resultatCourse, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "home";
+            model.addAttribute("resultatCourse", resultatCourse);
+            return "addResultat";
         }
         System.out.println(resultatCourse);
         resultatCourseService.save(resultatCourse);
-        model.addAttribute("resultatCourse", resultatCourseService.findAll());
 
-        return "addResultat";
+
+        return "home";
     }
 }

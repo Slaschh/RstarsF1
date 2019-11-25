@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 
-<header th:insert="fragment/header :: header(~{ :: .breadcrumb})">
-    <ol class="breadcrumb container">
-    </ol>
-</header>
-<header>
+<head th:include="fragment/block :: headerFragment"></head>
 
+<header th:insert="fragment/header :: header(barnav)"></header>
 
-</header>
 <body>
 <div class="container">
 
@@ -92,7 +89,7 @@
             <div id="streams">
 
 
-                <div id="container" class="itemsContainer">
+                <div class="itemsContainer" id="container">
 
 
                     <div class="streamBox isotope-item F1_2019">
@@ -212,24 +209,24 @@
 
                         <form action="rstarsr.php" method="post"></form>
                         <tr>
-                            <td align="right" width="50%"><input type="checkbox" name="streamS[]" value="CaMaK"> &nbsp;
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="CaMaK"> &nbsp;
                             </td>
                             <td align="LEFT">&nbsp; CaMaK</td>
                         </tr>
                         <tr>
-                            <td align="right" width="50%"><input type="checkbox" name="streamS[]" value="Phoenie">
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="Phoenie">
                                 &nbsp;
                             </td>
                             <td align="LEFT">&nbsp; Phoenie</td>
                         </tr>
                         <tr>
-                            <td align="right" width="50%"><input type="checkbox" name="streamS[]" value="Xerackk">
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="Xerackk">
                                 &nbsp;
                             </td>
                             <td align="LEFT">&nbsp; Xerackk</td>
                         </tr>
                         <tr>
-                            <td align="right" width="50%"><input type="checkbox" name="streamS[]" value="Hermanel">
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="Hermanel">
                                 &nbsp;
                             </td>
                             <td align="LEFT">&nbsp; Hermanel</td>
@@ -268,37 +265,37 @@
                     <span class="streamer-twitch-name">Xerackk</span>
                     <span class="streamer-description">Organisateur &amp; Commentateur</span>
                 </a>
-                <a class="streamer" style="border-left-color: yellow" href="https://www.twitch.tv/Sansha"
+                <a class="streamer" href="https://www.twitch.tv/Sansha" style="border-left-color: yellow"
                    target="_blank">
                     <span class="streamer-name">Marcelle Vasseur</span>
                     <span class="streamer-twitch-name">Sansha</span>
                     <span class="streamer-description">Directrice Renault</span>
                 </a>
-                <a class="streamer" style="border-left-color: orange" href="https://www.twitch.tv/OliverStaton"
+                <a class="streamer" href="https://www.twitch.tv/OliverStaton" style="border-left-color: orange"
                    target="_blank">
                     <span class="streamer-name">Zak Crown</span>
                     <span class="streamer-twitch-name">OliverStaton</span>
                     <span class="streamer-description">Directeur McLaren</span>
                 </a>
-                <a class="streamer" style="border-left-color: darkred" href="https://www.twitch.tv/Naevuis"
+                <a class="streamer" href="https://www.twitch.tv/Naevuis" style="border-left-color: darkred"
                    target="_blank">
                     <span class="streamer-name">Matteo Salvini</span>
                     <span class="streamer-twitch-name">Naevuis</span>
                     <span class="streamer-description">Directeur Alfa Romeo Racing</span>
                 </a>
-                <a class="streamer" style="border-left-color: blue" href="https://www.twitch.tv/Phoenie"
+                <a class="streamer" href="https://www.twitch.tv/Phoenie" style="border-left-color: blue"
                    target="_blank">
                     <span class="streamer-name">Jean Rott</span>
                     <span class="streamer-twitch-name">Phoenie</span>
                     <span class="streamer-description">Directeur Red Bull Racing</span>
                 </a>
-                <a class="streamer" style="border-left-color: cyan" href="https://www.twitch.tv/Hermanel"
+                <a class="streamer" href="https://www.twitch.tv/Hermanel" style="border-left-color: cyan"
                    target="_blank">
                     <span class="streamer-name">Hans Schneckenburgermann </span>
                     <span class="streamer-twitch-name">Hermanel</span>
                     <span class="streamer-description">Directeur Mercedes</span>
                 </a>
-                <a class="streamer" style="border-left-color: red" href="https://www.twitch.tv/CaMaK" target="_blank">
+                <a class="streamer" href="https://www.twitch.tv/CaMaK" style="border-left-color: red" target="_blank">
                     <span class="streamer-name">Pablo Monzini</span>
                     <span class="streamer-twitch-name">CaMaK</span>
                     <span class="streamer-description">Directeur Scuderia Ferrari</span>
@@ -311,11 +308,13 @@
 
             <div class="sidebar-title">Actualité</div>
 
-            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true"
-                    class="twitter-timeline twitter-timeline-rendered"
+            <iframe allowfullscreen="true" allowtransparency="true" class="twitter-timeline twitter-timeline-rendered"
+                    data-widget-id="profile:Gazette_Rstars" frameborder="0"
+                    id="twitter-widget-0"
+                    scrolling="no"
                     style="position: static; visibility: visible; display: inline-block; width: 100%; height: 600px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
-                    data-widget-id="profile:Gazette_Rstars" title="Twitter Timeline"></iframe>
-            <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    title="Twitter Timeline"></iframe>
+            <script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
         </div>
     </div>
 </div>
@@ -325,10 +324,10 @@
 
 </div>
 
-<iframe scrolling="no" frameborder="0" allowtransparency="true"
+<iframe allowtransparency="true" frameborder="0" scrolling="no"
         src="https://platform.twitter.com/widgets/widget_iframe.e3a0e1b01ae601b6c9cf798a93ab7e69.html?origin=http%3A%2F%2Fstream.alwaysdata.net"
-        title="Twitter settings iframe" style="display: none;"></iframe>
-<iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true"
+        style="display: none;" title="Twitter settings iframe"></iframe>
+<iframe allowfullscreen="true" allowtransparency="true" frameborder="0" id="rufous-sandbox" scrolling="no"
         style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"
         title="Twitter analytics iframe"></iframe>
 </body>
