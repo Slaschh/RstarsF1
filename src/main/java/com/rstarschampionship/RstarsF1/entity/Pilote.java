@@ -1,6 +1,7 @@
 package com.rstarschampionship.RstarsF1.entity;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,55 +16,63 @@ public class Pilote implements Serializable {
     @Id
     @Column(name = "id_pilote", updatable = false, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_pilote;
+    private Long idPilote;
     @Column(name = "nom_pilote")
-    private String nom_pilote;
+    private String nomPilote;
     @Column(name = "nom_ecurie")
-    private String nom_ecurie;
-
-
+    private String nomEcurie;
+    @Column(name = "integration")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private Date integration;
 
     public Pilote() {
-        super();
     }
 
-    public Pilote(String nom_pilote, String nom_ecurie, Date integration) {
-        super();
-        this.nom_ecurie = nom_ecurie;
-        this.nom_pilote = nom_pilote;
+    public Pilote(String nomPilote, String nomEcurie, Date integration) {
+        this.nomPilote = nomPilote;
+        this.nomEcurie = nomEcurie;
+        this.integration = integration;
     }
 
-    public String getNom_pilote() {
-        return nom_pilote;
+    public Long getIdPilote() {
+        return idPilote;
     }
 
-    public void setNom_pilote(String nom_pilote) {
-        this.nom_pilote = nom_pilote;
+    public void setIdPilote(Long idPilote) {
+        this.idPilote = idPilote;
     }
 
-    public String getNom_ecurie() {
-        return nom_ecurie;
+    public Date getIntegration() {
+        return integration;
     }
 
-    public void setNom_ecurie(String nom_ecurie) {
-        this.nom_ecurie = nom_ecurie;
+    public void setIntegration(Date integration) {
+        this.integration = integration;
     }
 
-    public Long getId_pilote() {
-        return id_pilote;
+    public String getNomPilote() {
+        return nomPilote;
     }
 
-    public void setId_pilote(Long id_pilote) {
-        this.id_pilote = id_pilote;
+    public void setNomPilote(String nomPilote) {
+        this.nomPilote = nomPilote;
+    }
+
+    public String getNomEcurie() {
+        return nomEcurie;
+    }
+
+    public void setNomEcurie(String nomEcurie) {
+        this.nomEcurie = nomEcurie;
     }
 
     @Override
     public String toString() {
         return "Pilote{" +
-                "id_pilote=" + id_pilote +
-                ", nom_pilote='" + nom_pilote + '\'' +
-                ", nom_ecurie='" + nom_ecurie + '\'' +
+                "idPilote=" + idPilote +
+                ", nomPilote='" + nomPilote + '\'' +
+                ", nomEcurie='" + nomEcurie + '\'' +
+                ", integration=" + integration +
                 '}';
     }
 }
-

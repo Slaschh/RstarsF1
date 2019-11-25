@@ -40,15 +40,29 @@
                                 <h1>Nom pilote :</h1>
                             </label>
                             <input type="text" class="form-control" id="NamePilote" placeholder="Nom Pilote"
-                                   th:field="*{nom_pilote}"/>
+                                   th:field="*{nomPilote}"/>
                         </div>
                         <div class="form-group">
                             <label for="nameEcurie">
                                 <h1>Nom ecurie :</h1>
                             </label>
                             <input type="text" class="form-control" id="nameEcurie" placeholder="Nom Ecurie"
-                                   th:field="*{nom_ecurie}"/>
+                                   th:field="*{nomEcurie}"/>
                         </div>
+                        <div class="form-group">
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                                <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                            </div>
+                            <label for="DateIntegration">
+                                Date d'intégration
+                            </label>
+                            <input class="form-control" id="DateIntegration" placeholder="Date d'intégration"
+                                   th:field="*{integration}" type="text"/>
+                            </label>
+
+                        </div>
+
+
                         <input type="submit" class="btn btn-light" value="Create"/>
                     </form>
 
@@ -66,11 +80,7 @@
                         <th scope="col">Nom Pilote</th>
                         <th scope="col">Nom Ecurie</th>
                     </tr>
-                    <tr th:each="pilote : ${pilote}">
-                        <td th:text="${pilote.id_pilote}"></td>
-                        <td th:text="${pilote.nom_pilote}"></td>
-                        <td th:text="${pilote.nom_ecurie}"></td>
-                    </tr>
+
                 </div>
             </div>
 
