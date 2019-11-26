@@ -30,6 +30,7 @@ public class controllerAddPilote {
         Pilote addpilote = new Pilote();
         addpilote.setIntegration(new Date());
         model.addAttribute("pilote", addpilote);
+        model.addAttribute("listPilote", piloteService.findAll());
         model.addAttribute("pageTitle", "Ajout Pilote");
         return "addPilote";
     }
