@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Date;
 
 @Controller
+
 public class controllerAddPilote {
 
     private final PiloteService piloteService;
@@ -22,6 +23,7 @@ public class controllerAddPilote {
     public controllerAddPilote(PiloteService piloteService) {
         this.piloteService = piloteService;
     }
+
 
     @RequestMapping(value = "/addPilote", method = RequestMethod.GET)
     public String AddPilote(Model model) {

@@ -1,5 +1,7 @@
 package com.rstarschampionship.RstarsF1.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,6 +26,12 @@ public class Pilote implements Serializable {
     @Column(name = "integration")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date integration;
+    @Column(name = "createdat")
+    @CreationTimestamp
+    private Date createdAt;
+    @Column(name = "updateat")
+    @UpdateTimestamp
+    private Date uptadeAt;
 
     public Pilote() {
     }

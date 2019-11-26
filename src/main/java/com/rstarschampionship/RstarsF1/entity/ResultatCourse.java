@@ -1,8 +1,11 @@
 package com.rstarschampionship.RstarsF1.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "resultat_course" )
@@ -19,6 +22,12 @@ public class ResultatCourse {
     private int place;
     @Column(name = "id_pilote")
     private long id_pilote;
+    @Column(name = "createdat")
+    @CreationTimestamp
+    private Date createdAt;
+    @Column(name = "updateat")
+    @UpdateTimestamp
+    private Date uptadeAt;
 
     private boolean modifcation;
 

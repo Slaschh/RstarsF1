@@ -21,30 +21,32 @@
                 <div class="card-body">
                     <form th:action="@{/addPilote}"
                           th:object="${pilote}" method="POST">
-                        <div class="form-group">
+                        <div class="form-group" th:class="${#fields.hasErrors('nomPilote')}? has-error">
                             <label for="NamePilote">
                                 <h1>Nom pilote :</h1>
                             </label>
                             <input type="text" class="form-control" id="NamePilote" placeholder="Nom Pilote"
                                    th:field="*{nomPilote}"/>
+                            <span th:errorclass="fieldError" th:errors="*{nomPilote}"
+                                  th:if="${#fields.hasErrors('nomPilote')}">Erreur Nom Pilote</span>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" th:class="${#fields.hasErrors('nomEcurie')}? has-error">
                             <label for="nameEcurie">
                                 <h1>Nom ecurie :</h1>
                             </label>
                             <input type="text" class="form-control" id="nameEcurie" placeholder="Nom Ecurie"
                                    th:field="*{nomEcurie}"/>
+                            <span th:errorclass="fieldError" th:errors="*{nomEcurie}"
+                                  th:if="${#fields.hasErrors('nomEcurie')}">Erreur Nom d'écurie</span>
                         </div>
-                        <div class="form-group">
-                            <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
-                                <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
-                            </div>
+                        <div class="form-group" th:class="${#fields.hasErrors('integration')}? has-error">
                             <label for="DateIntegration">
                                 Date d'intégration
                             </label>
                             <input class="form-control" id="DateIntegration" placeholder="Date d'intégration"
                                    th:field="*{integration}" type="text"/>
-                            </label>
+                            <span th:errorclass="fieldError" th:errors="*{integration}"
+                                  th:if="${#fields.hasErrors('integration')}">Erreur de date d'intégration</span>
 
                         </div>
 

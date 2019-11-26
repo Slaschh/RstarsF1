@@ -23,6 +23,7 @@ public class ControllerAddResultat {
     public String AddResultat(Model model) {
         ResultatCourse addResultat = new ResultatCourse();
         model.addAttribute("resultatCourse", addResultat);
+        model.addAttribute("pageTitle", "Ajout d'un résultat");
 
         return "addResultat";
     }
