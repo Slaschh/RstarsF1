@@ -17,12 +17,8 @@ import java.util.Date;
 
 public class controllerAddPilote {
 
-    private final PiloteService piloteService;
-
     @Autowired
-    public controllerAddPilote(PiloteService piloteService) {
-        this.piloteService = piloteService;
-    }
+    private PiloteService piloteService;
 
 
     @RequestMapping(value = "/addPilote", method = RequestMethod.GET)

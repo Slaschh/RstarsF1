@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <title>Ajout/Modif Pilote</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,10 +26,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="assets/logo.png" width="200" height="53" class="d-inline-block align-top" alt="">
+            <img alt="" class="d-inline-block align-top" height="53" src="assets/logo.png" width="200">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -42,11 +43,24 @@
                     <a class="nav-link" href="/classement">classement</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                       data-toggle="dropdown"
+                       href="#" id="Ajout de donnée" role="button">
+                        Ajout Résultat / pilote
+                    </a>
+                    <div aria-labelledby="Ajout de donnée" class="dropdown-menu">
+                        <a class="dropdown-item" href="/addPilote"> Ajout d'un pilote</a>
+                        <a class="dropdown-item" href="/addResultat"> Ajout d'un résultat</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                       data-toggle="dropdown"
+                       href="#" id="navbarDropdown" role="button">
                         Ecuries F1
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
                         <a class="dropdown-item" href="/renault">Renault</a>
                         <a class="dropdown-item" href="/alfaromeo">Alfa Romeo</a>
                         <a class="dropdown-item" href="/redbullracing">Red Bull Racing</a>
@@ -54,6 +68,8 @@
                         <a class="dropdown-item" href="/ferrari">Ferrari</a>
                         <a class="dropdown-item" href="/hass">Hass F1</a>
                         <div class="dropdown-divider"></div>
+                    </div>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#candidature">Candidature</a>

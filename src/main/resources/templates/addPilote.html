@@ -11,12 +11,12 @@
 <div class="container-fluid h-100">
     <div class="row h-100">
 
-        <div th:insert="fragment/LateralNav :: nav(lateralnav)"></div>
+
 
         <!-- Formulaire pour l'ajout d'un pilote -->
         <div class="col-5">
             <div class="card"
-                 style="width: 50rem; justify-content: center ; align-content: center; background: whitesmoke; ">
+                 style="max-width: 100%; height: auto; display: block; justify-content: center ; align-content: center; background: whitesmoke; ">
                 <img alt="..." class="card-img-top" src="assets/Banniere.jpg">
                 <div class="card-body">
                     <form method="POST"
@@ -62,40 +62,34 @@
 
         <div class="col-5">
             <div card>
-                <div class="table table-white">
+                <table class="table table-dark">
                     <thead>
                     <tr>
                         <th scope="col">N°Pilote</th>
                         <th scope="col">Nom Pilote</th>
                         <th scope="col">Nom Ecurie</th>
+                        <th scopte="col">Date Integration</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="listPilote : ${listPilote}">
-                        <td><span th:text="${pilote.getIdPilote()}">N°Pilote</span></td>
-                        <td><span th:text="${pilote.getNomPilote()}">Nom Pilote</span></td>
-                        <td><span th:text="${pilote.getNomEcurie()}">Nom Ecurie</span></td>
+                    <tr>
+                    <tr th:each="pilote : ${listPilote}">
+                        <td><span th:text="${pilote.idPilote}"></span></td>
+                        <td><span th:text="${pilote.nomPilote}"></span></td>
+                        <td><span th:text="${pilote.nomEcurie}"></span></td>
+                        <td><span th:text="${pilote.integration}"></span></td>
+                    </tr>
                     </tr>
                     </tbody>
 
-                </div>
+                </table>
             </div>
 
         </div>
     </div>
 </div>
 
-
-<script crossorigin="anonymous"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script crossorigin="anonymous"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script crossorigin="anonymous"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<footer th:insert="fragment/footer :: footer"></footer>
 </body>
 
 </html>
