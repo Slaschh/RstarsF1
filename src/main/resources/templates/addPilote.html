@@ -11,22 +11,22 @@
 <div class="container-fluid h-100">
     <div class="row h-100">
 
-        <div th:insert="fragment/LateralNav :: nav(lateralnav)"></div>
+
 
         <!-- Formulaire pour l'ajout d'un pilote -->
         <div class="col-5">
             <div class="card"
-                 style="width: 50rem; justify-content: center ; align-content: center; background: whitesmoke; ">
-                <img src="assets/Banniere.jpg" class="card-img-top" alt="...">
+                 style="max-width: 100%; height: auto; display: block; justify-content: center ; align-content: center; background: whitesmoke; ">
+                <img alt="..." class="card-img-top" src="assets/Banniere.jpg">
                 <div class="card-body">
-                    <form th:action="@{/addPilote}"
-                          th:object="${pilote}" method="POST">
+                    <form method="POST"
+                          th:action="@{/addPilote}" th:object="${pilote}">
                         <div class="form-group" th:class="${#fields.hasErrors('nomPilote')}? has-error">
                             <label for="NamePilote">
                                 <h1>Nom pilote :</h1>
                             </label>
-                            <input type="text" class="form-control" id="NamePilote" placeholder="Nom Pilote"
-                                   th:field="*{nomPilote}"/>
+                            <input class="form-control" id="NamePilote" placeholder="Nom Pilote" th:field="*{nomPilote}"
+                                   type="text"/>
                             <span th:errorclass="fieldError" th:errors="*{nomPilote}"
                                   th:if="${#fields.hasErrors('nomPilote')}">Erreur Nom Pilote</span>
                         </div>
@@ -34,8 +34,8 @@
                             <label for="nameEcurie">
                                 <h1>Nom ecurie :</h1>
                             </label>
-                            <input type="text" class="form-control" id="nameEcurie" placeholder="Nom Ecurie"
-                                   th:field="*{nomEcurie}"/>
+                            <input class="form-control" id="nameEcurie" placeholder="Nom Ecurie" th:field="*{nomEcurie}"
+                                   type="text"/>
                             <span th:errorclass="fieldError" th:errors="*{nomEcurie}"
                                   th:if="${#fields.hasErrors('nomEcurie')}">Erreur Nom d'écurie</span>
                         </div>
@@ -51,7 +51,7 @@
                         </div>
 
 
-                        <input type="submit" class="btn btn-light" value="Create"/>
+                        <input class="btn btn-light" type="submit" value="Create"/>
                     </form>
 
                 </div>
@@ -62,31 +62,34 @@
 
         <div class="col-5">
             <div card>
-                <div class="table table-dark">
+                <table class="table table-dark">
+                    <thead>
                     <tr>
                         <th scope="col">N°Pilote</th>
                         <th scope="col">Nom Pilote</th>
                         <th scope="col">Nom Ecurie</th>
+                        <th scopte="col">Date Integration</th>
                     </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <tr th:each="pilote : ${listPilote}">
+                        <td><span th:text="${pilote.idPilote}"></span></td>
+                        <td><span th:text="${pilote.nomPilote}"></span></td>
+                        <td><span th:text="${pilote.nomEcurie}"></span></td>
+                        <td><span th:text="${pilote.integration}"></span></td>
+                    </tr>
+                    </tr>
+                    </tbody>
 
-                </div>
+                </table>
             </div>
 
         </div>
     </div>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-
+<footer th:insert="fragment/footer :: footer"></footer>
 </body>
 
 </html>

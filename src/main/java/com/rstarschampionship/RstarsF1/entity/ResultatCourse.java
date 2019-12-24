@@ -29,22 +29,20 @@ public class ResultatCourse {
     @UpdateTimestamp
     private Date uptadeAt;
 
-    private boolean modifcation;
 
     public ResultatCourse ()
     {
     super();
     }
 
-    public ResultatCourse(long id_pilote, String circuit, int place, boolean modif, long id_resultat )
-    {
+    public ResultatCourse(long id_pilote, String circuit, int place, long id_resultat) {
         super();
-        this.circuit=circuit;
-        this.id_resultat=id_resultat;
-        this.modifcation= modif;
-        this.id_pilote=id_pilote;
-        this.place=place;
+        this.circuit = circuit;
+        this.id_resultat = id_resultat;
+        this.id_pilote = id_pilote;
+        this.place = place;
     }
+
     public long getId_pilote() {
         return id_pilote;
     }
@@ -68,13 +66,7 @@ public class ResultatCourse {
         this.place = place;
     }
 
-    public boolean isModifcation() {
-        return modifcation;
-    }
 
-    public void setModifcation(boolean modifcation) {
-        this.modifcation = modifcation;
-    }
 
     public Long getId_resultat() {
         return id_resultat;
