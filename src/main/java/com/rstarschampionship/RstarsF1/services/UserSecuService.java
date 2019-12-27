@@ -8,12 +8,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class UserSecuService implements UserDetailsService {
 
-    final UserSecuRepository userSecuRepository;
+    @Autowired
+    UserSecuRepository userSecuRepository;
 
     @Autowired
     public UserSecuService(UserSecuRepository userSecuRepository) {
@@ -27,5 +30,9 @@ public class UserSecuService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return user;
     }
+
+    public UserSecu save (UserSecu user) {return userSecuRepository.save(user);}
+
+    public Optional<UserSecu> findByEmail(String email) {return userSecuRepository.findByEmail(email);}
 
 }

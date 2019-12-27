@@ -11,12 +11,10 @@
 <div class="container-fluid h-100">
     <div class="row h-100">
 
-
-
         <!-- Formulaire pour l'ajout d'un pilote -->
         <div class="col-5">
             <div class="card"
-                 style="max-width: 100%; height: auto; display: block; justify-content: center ; align-content: center; background: whitesmoke; ">
+                 style="width: 100%; justify-content: center ; align-content: center; background: whitesmoke; ">
                 <img alt="..." class="card-img-top" src="assets/Banniere.jpg">
                 <div class="card-body">
                     <form method="POST"
@@ -62,34 +60,47 @@
 
         <div class="col-5">
             <div card>
-                <table class="table table-dark">
-                    <thead>
-                    <tr>
-                        <th scope="col">N°Pilote</th>
-                        <th scope="col">Nom Pilote</th>
-                        <th scope="col">Nom Ecurie</th>
-                        <th scopte="col">Date Integration</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <tr th:each="pilote : ${listPilote}">
-                        <td><span th:text="${pilote.idPilote}"></span></td>
-                        <td><span th:text="${pilote.nomPilote}"></span></td>
-                        <td><span th:text="${pilote.nomEcurie}"></span></td>
-                        <td><span th:text="${pilote.integration}"></span></td>
-                    </tr>
-                    </tr>
-                    </tbody>
-
-                </table>
+                <div class="table table-dark">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="col">N°Pilote</th>
+                            <th scope="col">Nom Pilote</th>
+                            <th scope="col">Nom Ecurie</th>
+                            <th scope="col">Date intégration</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="pilote : ${listPilote}">
+                            <td th:text="${pilote.idPilote}"></td>
+                            <td th:text="${pilote.nomPilote}"></td>
+                            <td th:text="${pilote.nomEcurie}"></td>
+                            <td th:text="${pilote.integration}"></td>
+                            <td><a th:href="@{/edit/{id}(id=${pilote.idPilote})}">Edit</a></td>
+                            <td><a th:href="@{/delete/{id}(id=${pilote.idPilote})}">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
     </div>
 </div>
 
-<footer th:insert="fragment/footer :: footer"></footer>
+
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

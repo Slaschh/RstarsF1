@@ -83,4 +83,5 @@ public class Pilote implements Serializable {
                 ", integration=" + integration +
                 '}';
     }
+
 }

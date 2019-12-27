@@ -37,9 +37,11 @@ public class controllerAddPilote {
         if (result.hasErrors()) {
             model.addAttribute("pilote", pilote);
             System.out.println(pilote);
+
             return "addPilote";
         }
 
+        model.addAttribute("listPilote", piloteService.findAll());
         System.out.println(pilote);
         piloteService.save(pilote);
 
