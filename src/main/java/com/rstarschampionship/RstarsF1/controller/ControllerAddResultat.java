@@ -1,6 +1,7 @@
 package com.rstarschampionship.RstarsF1.controller;
 
 import com.rstarschampionship.RstarsF1.entity.ResultatCourse;
+import com.rstarschampionship.RstarsF1.services.PiloteService;
 import com.rstarschampionship.RstarsF1.services.ResultatCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ControllerAddResultat {
+
     private final ResultatCourseService resultatCourseService;
+    private final PiloteService piloteService;
 
     @Autowired
-    public ControllerAddResultat(ResultatCourseService resultatCourseService) {
+    public ControllerAddResultat(ResultatCourseService resultatCourseService, PiloteService piloteService) {
         this.resultatCourseService = resultatCourseService;
+        this.piloteService = piloteService;
     }
 
     @RequestMapping(value = "/addResultat", method = RequestMethod.GET)
@@ -24,6 +28,7 @@ public class ControllerAddResultat {
         ResultatCourse addResultat = new ResultatCourse();
         model.addAttribute("resultatCourse", addResultat);
         model.addAttribute("pageTitle", "Ajout d'un résultat");
+        model.addAttribute("listPilote", piloteService.findAll());
 
         return "addResultat";
     }

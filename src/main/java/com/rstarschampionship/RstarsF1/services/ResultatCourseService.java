@@ -21,4 +21,9 @@ public class ResultatCourseService {
     public List<ResultatCourse> findAll() {
         return resultatCourseRepository.findAll();
     }
+
+    public void correspondance() {
+
+    }
+
 }

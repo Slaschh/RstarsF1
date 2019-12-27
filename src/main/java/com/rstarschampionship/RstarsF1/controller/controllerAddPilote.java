@@ -17,12 +17,8 @@ import java.util.Date;
 
 public class controllerAddPilote {
 
-    private final PiloteService piloteService;
-
     @Autowired
-    public controllerAddPilote(PiloteService piloteService) {
-        this.piloteService = piloteService;
-    }
+    private PiloteService piloteService;
 
 
     @RequestMapping(value = "/addPilote", method = RequestMethod.GET)
@@ -30,6 +26,7 @@ public class controllerAddPilote {
         Pilote addpilote = new Pilote();
         addpilote.setIntegration(new Date());
         model.addAttribute("pilote", addpilote);
+        model.addAttribute("listPilote", piloteService.findAll());
         model.addAttribute("pageTitle", "Ajout Pilote");
         return "addPilote";
     }
@@ -40,9 +37,11 @@ public class controllerAddPilote {
         if (result.hasErrors()) {
             model.addAttribute("pilote", pilote);
             System.out.println(pilote);
+
             return "addPilote";
         }
 
+        model.addAttribute("listPilote", piloteService.findAll());
         System.out.println(pilote);
         piloteService.save(pilote);
 

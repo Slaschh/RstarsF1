@@ -11,71 +11,53 @@
 <div class="container-fluid h-100">
     <div class="row h-100">
 
-        <div th:insert="fragment/LateralNav :: nav(lateralnav)"></div>
 
         <!-- Formulaire pour l'ajout d'un résultat -->
 
         <div class="col-10">
             <div class="card"
-                 style="width: 50rem; justify-content: center ; align-content: center; background: whitesmoke; ">
-                <img src="../static/assets/Banniere.jpg" class="card-img-top" alt="...">
+                 style="max-width: 100%; display: block; height: auto; justify-content: center ; align-content: center; background: whitesmoke; ">
+                <img alt="..." class="card-img-top" src="assets/Banniere.jpg">
                 <div class="card-body">
-                    <form th:action="@{/addResultat}"
-                          th:object="${resultatCourse}" method="POST">
-                        <div class="form-group" th:class="${#fields.hasErrors('id_pilote')}? has-error">
-                            <label for="id_pilote">
-                                <h1>Id Pilote :</h1>
-                            </label>
-                            <!-- Mise en place d'une liste des pilotes inscrit dans la bdd (table : pilote) -->
-                            <!-- Renvoi de l'id_pilote liée à la bdd (table : pilote)  -->
-                            <input class="form-control" id="id_pilote" placeholder="Nom Pilote" type="number"
-                                   th:field="*{id_pilote}"/>
-                            <span th:errorclass="fieldError" th:errors="*{id_pilote}"
-                                  th:if="${#fields.hasErrors('id_pilote')}">Erreur id pilote</span>
-                        </div>
+                    <form method="POST"
+                          th:action="@{/addResultat}" th:object="${resultatCourse}">
                         <div class="form-group">
                             <label for="NameCircuit">
                                 Circuit :
                             </label>
-                            <select class="form-control" id="NameCircuit" th:select="*{circuit}">
-                                <option>Australie</option>
-                                <option>Chine</option>
-                                <option>Espagne</option>
-                                <option> Monaco</option>
-                                <option>Canada</option>
-                                <option> France</option>
-                                <option> Autriche</option>
-                                <option> Grande-Bretagne</option>
-                                <option> Allemagne</option>
-                                <option> Hongrie</option>
-                                <option> Italie</option>
-                                <option> Singapour</option>
-                                <option> Russie</option>
-                                <option> japon</option>
-                                <option> Etats-unis</option>
-                                <option> Brésil</option>
-                                <option> Abu Dhabi</option>
+                            <select class="form-control" id="NameCircuit" th:field="*{circuit}">
+                                <option th:text="Australie" th:value="Australie"></option>
                             </select>
-
-
                         </div>
-                        <div class="form-group" th:class="${#fields.hasErrors('place')}? has-error">
-                            <label for="Place">
-                                Place :
-                            </label>
-                            <input class="form-control" id="Place" placeholder="place" type="number"
-                                   th:field="*{place}"/>
-                            <span th:errorclass="fielError" th:errors="*{place}" th:if="${#fields.hasErrors('place')}">Erreur place</span>
+                        <fieldset>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Nom Pilote</th>
+                                    <th>Place</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="pilote : ${listPilote}">
+                                    <td><input hidden th:field="${resultatCourse.id_pilote}"
+                                               th:value="${pilote.idPilote}"></td>
+                                    <td><span th:text="${pilote.nomPilote}"></span></td>
+                                    <td><input th:field="${resultatCourse.place}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
 
 
-                            <input type="submit" class="btn btn-light" value="Create"/>
-                        </div>
+                        <input class="btn btn-light" type="submit" value="Create"/>
+                </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<footer th:insert="fragment/footer :: footer"></footer>
 </body>
 
 
