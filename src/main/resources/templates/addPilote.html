@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:security="http://www.springframework.org/security/tags">
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <!-- Thymeleaf Namespace -->
 
@@ -57,35 +58,36 @@
         </div>
 
         <!-- Mise en place d'un tableau avec toutes les information liée a la table pilote -->
-
         <div class="col-5">
-            <div card>
-                <div class="table table-dark">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th scope="col">N°Pilote</th>
-                            <th scope="col">Nom Pilote</th>
-                            <th scope="col">Nom Ecurie</th>
-                            <th scope="col">Date intégration</th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="pilote : ${listPilote}">
-                            <td th:text="${pilote.idPilote}"></td>
-                            <td th:text="${pilote.nomPilote}"></td>
-                            <td th:text="${pilote.nomEcurie}"></td>
-                            <td th:text="${pilote.integration}"></td>
-                            <td><a th:href="@{/edit/{id}(id=${pilote.idPilote})}">Edit</a></td>
-                            <td><a th:href="@{/delete/{id}(id=${pilote.idPilote})}">Delete</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <security:authorize acces="hasRole('ROLE_ADMIN')">
+                <div card>
+                    <div class="table table-dark">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th scope="col">N°Pilote</th>
+                                <th scope="col">Nom Pilote</th>
+                                <th scope="col">Nom Ecurie</th>
+                                <th scope="col">Date intégration</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                            </thead>
 
+                            <tbody>
+                            <tr th:each="pilote : ${listPilote}">
+                                <td th:text="${pilote.idPilote}"></td>
+                                <td th:text="${pilote.nomPilote}"></td>
+                                <td th:text="${pilote.nomEcurie}"></td>
+                                <td th:text="${pilote.integration}"></td>
+                                <td><a th:href="@{/edit/{id}(id=${pilote.idPilote})}">Edit</a></td>
+                                <td><a th:href="@{/delete/{id}(id=${pilote.idPilote})}">Delete</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </security:authorize>
         </div>
     </div>
 </div>
