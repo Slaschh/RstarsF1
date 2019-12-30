@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @Controller
@@ -22,12 +23,13 @@ public class controllerAddPilote {
 
 
     @RequestMapping(value = "/addPilote", method = RequestMethod.GET)
-    public String AddPilote(Model model) {
+    public String AddPilote(Model model, HttpServletRequest request) {
         Pilote addpilote = new Pilote();
         addpilote.setIntegration(new Date());
         model.addAttribute("pilote", addpilote);
         model.addAttribute("listPilote", piloteService.findAll());
         model.addAttribute("pageTitle", "Ajout Pilote");
+        request.isUserInRole("someAuthority");
         return "addPilote";
     }
 
@@ -44,6 +46,7 @@ public class controllerAddPilote {
         model.addAttribute("listPilote", piloteService.findAll());
         System.out.println(pilote);
         piloteService.save(pilote);
+
 
         return "home";
     }
